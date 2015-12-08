@@ -5,10 +5,9 @@ define(['module/HUD'],function(HUD){
     var _game = null,
         _nextState = null;
 
-    var _End = {
+    var _WinEnd = {
         create: function(){
-            HUD.createTitle(' GDB won. \n Press Spacebar');
-
+            HUD.createButton();
             //Starting the Play state after the spacebar is down
             _game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).onDown.addOnce(function(){
                 _game.state.start(_nextState);
@@ -21,8 +20,8 @@ define(['module/HUD'],function(HUD){
             _game = game;
             _nextState = nextState;
         },
-        getEndState: function(){
-            return (_End);
+        getWinEndState: function(){
+            return (_WinEnd);
         }
     }
 })

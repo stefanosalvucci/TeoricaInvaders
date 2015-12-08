@@ -38,19 +38,19 @@ define(['module/HUD'],function(HUD){
 
         bullet.kill();
         HUD.updateHealthText(ship.health);
-        
+
         //ship lose a life
-        if(ship.health == 0){            
+        if(ship.health == 0){
             this.stopShooting();
             _explosion = _explosionGroup.getFirstExists(false);
             _explosion.reset(_ship.body.x,_ship.body.y);
             _explosion.play('kaboom',30,false,true);
-            
+
             _lives--;
             HUD.updateLivesText(_lives);
-            
+
             //lose life
-            if(_lives > 0){                
+            if(_lives > 0){
                 ship.revive(_health);
                 this.startShooting();
             //dead
@@ -63,7 +63,7 @@ define(['module/HUD'],function(HUD){
 
     return{
         init: function(game){
-            _game = game;            
+            _game = game;
         },
         preload: function(){
             _game.load.image('ship', 'assets/img/player.png');
@@ -99,7 +99,7 @@ define(['module/HUD'],function(HUD){
         },
         setExplosionGroup: function(explosions){
             _explosionGroup = explosions.getExplosionGroup();
-        },        
+        },
         startShooting: function(){
             _shootingEvent = _game.time.events.loop(_firingTime,_fireBullet,this);
         },

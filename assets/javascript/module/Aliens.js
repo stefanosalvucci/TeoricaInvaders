@@ -29,7 +29,7 @@ define(['module/HUD'],function(HUD){
             _livingAlien = [],
             _randomAlienIndex = null,
             _shooter = null,
-            _shootingEvent = null;            
+            _shootingEvent = null;
 
         _alienGroup.enableBody = true;
         _alienGroup.physicsBodyType = Phaser.Physics.ARCADE;
@@ -51,7 +51,7 @@ define(['module/HUD'],function(HUD){
                     _alien.body.moves = false;
                 }
             }
-                       
+
 
             //setting aliens postition
             _alienGroup.x = 100;
@@ -59,29 +59,29 @@ define(['module/HUD'],function(HUD){
 
             //  All this does is basically start the invaders moving.
             _tween = _game.add.tween(_alienGroup).to( { x: 200 }, 2000, _easing, true, 0, 1000, true);
-           
+
         }
 
 
 
         var _fireBullet = function(){
             _bullet = _bulletGroup.getFirstExists(false);
-            
+
             _livingAlien = [];
-            
+
             _alienGroup.forEachAlive(function(alien){
                 _livingAlien.push(alien);
             });
-                        
+
             if(_bullet && _livingAlien.length > 0){
 
                 //_bullet.lifespan = _game.height / (_bulletSpeed/1000);
                 _bullet.checkWorldBounds = true;
-                
+
                 _randomAlienIndex = _game.rnd.integerInRange(0,_livingAlien.length);
 
                 _shooter = _livingAlien[_randomAlienIndex];
-                
+
                 if(_shooter){
                     _bullet.reset(_shooter.body.x,_shooter.body.y);
 
@@ -89,7 +89,7 @@ define(['module/HUD'],function(HUD){
                 }
             //all alien died
             }else if(_livingAlien.length == 0){
-                _game.state.start('End');
+                _game.state.start('WinEnd');
             }
 
         };
@@ -98,7 +98,7 @@ define(['module/HUD'],function(HUD){
 
             alien.damage(bullet.bulletDamage);
             bullet.kill();
-            
+
             if(alien.health == 0){
                 _explosion = _explosionGroup.getFirstExists(false);
                 _explosion.reset(alien.body.x,alien.body.y);
@@ -146,7 +146,7 @@ define(['module/HUD'],function(HUD){
         },
         create: function(configuration){
             return( new _Aliens(configuration) );
-        },                
+        },
         setPlayerShip: function(playerShip){
             _playerShip = playerShip;
         }
