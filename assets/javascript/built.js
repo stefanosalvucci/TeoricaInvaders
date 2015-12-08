@@ -8,7 +8,7 @@
  * */
 
 ({
-    baseUrl: ".",
+    baseUrl: "/TeoricaInvaders",
     name: "main",
     out: "built/main-built.js"
 })
