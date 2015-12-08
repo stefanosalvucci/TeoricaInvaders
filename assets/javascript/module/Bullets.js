@@ -29,8 +29,8 @@ define(function(){
             _game = game;
         },
         preload: function(){
-            _game.load.image('bullet','assets/img/bullet.png');
-            _game.load.image('enemyBullet','assets/img/enemy-bullet.png');
+            _game.load.image('bullet','TeoricaInvaders/assets/img/bullet.png');
+            _game.load.image('enemyBullet','TeoricaInvaders/assets/img/enemy-bullet.png');
         },
         create: function(quantity,type,damage){
             return( new _Bullets(quantity,type,damage) );

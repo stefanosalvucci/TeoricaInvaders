@@ -142,7 +142,7 @@ define(['module/HUD'],function(HUD){
             _game = game;
         },
         preload: function(){
-            _game.load.spritesheet('invader', 'assets/img/invader32x32x4.png', 32, 32);
+            _game.load.spritesheet('invader', 'TeoricaInvaders/assets/img/invader32x32x4.png', 32, 32);
         },
         create: function(configuration){
             return( new _Aliens(configuration) );

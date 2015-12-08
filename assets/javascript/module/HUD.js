@@ -18,7 +18,7 @@ define(function(){
             _game = game;
         },
         preload: function(){
-            _game.load.spritesheet('button', 'assets/img/button_sprite_sheet.png', 193, 71);
+            _game.load.spritesheet('button', 'TeoricaInvaders/assets/img/button_sprite_sheet.png', 193, 71);
         },
         createStat: function(score,health,lives){
             _score = score;
